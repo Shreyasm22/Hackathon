@@ -7,7 +7,7 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
 
-    A = 5'b01100
+    A = bin(01100)
 
     dut.sel.value = A
 
