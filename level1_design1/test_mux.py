@@ -13,6 +13,6 @@ async def test_mux(dut):
 
     await Timer(2, units='ns')
     
-    assert dut.out.value == INP12, "Adder result is incorrect: {A} != {INP12}, expected value={EXP}".format(
-            A=int(dut.sel.value), INP12 =int(dut.out.value), EXP=INP12)
+    assert dut.out.value == inp12, "Adder result is incorrect: {A} != {inp12}, expected value={EXP}".format(
+            A=int(dut.sel.value), inp12 =int(dut.out.value), EXP=inp12)
 
