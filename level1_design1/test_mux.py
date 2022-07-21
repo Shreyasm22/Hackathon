@@ -11,7 +11,7 @@ async def test_mux1(dut):
         B = 0b11
 
         dut.sel.value = A
-        dut.(inp%s%i).value = B
+        dut.(inp{str(i)}).value = B
 
         await Timer(2, units='ns')
     
