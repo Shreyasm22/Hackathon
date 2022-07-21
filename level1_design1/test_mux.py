@@ -1,5 +1,5 @@
 # See LICENSE.vyoma for details
-
+import os
 import cocotb
 from cocotb.triggers import Timer
 
@@ -10,7 +10,7 @@ async def test_mux1(dut):
     A = 0b00000
     for i in range(0,31):
         A = A + 1;
-        inp{i} = 0b11
+        B = 0b11
 
         dut.sel.value = A
         dut.inp{i}.value = B
