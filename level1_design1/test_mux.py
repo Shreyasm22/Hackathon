@@ -6,8 +6,8 @@ from cocotb.triggers import Timer
 @cocotb.test()
 async def test_mux1(dut):
     """Test for mux2"""
-    for i in range(0,31):
-        A = type(i)
+    for bin(i) in range(0,31):
+        A = 0b00000 | bin(i)
         B = 0b11
 
         dut.sel.value = A
