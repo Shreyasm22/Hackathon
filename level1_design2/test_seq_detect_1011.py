@@ -23,4 +23,12 @@ async def test_seq_bug1(dut):
     dut.reset.value = 0
     await FallingEdge(dut.clk)
 
-    cocotb.log.info('#### CTB: Develop your test here! ######')
+    A = 0b101100110111001101011
+
+    dut.inp_bit.value = A
+
+    await Timer(2, units='ns')
+    
+    dut._log.info(f'Inp Seq = {A:21}  DUT={(dut.seq_seen.value):21}')
+    assert "Output sequence is {B}".format(
+            B = (dut.seq_seen.value))
