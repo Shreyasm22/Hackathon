@@ -15,6 +15,6 @@ async def test_mux(dut):
 
     await Timer(2, units='ns')
     
-    assert dut.out.value == B, "Adder result is incorrect: out != {B}, expected value={B}".format(
+    assert dut.out.value == B, "Sel line inp{A} doesn't exist".format(
             A=int(dut.sel.value), B =int(dut.inp12.value))
 
