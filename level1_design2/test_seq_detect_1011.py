@@ -29,6 +29,6 @@ async def test_seq_bug1(dut):
     dut.inp_bit.value = 1
     dut.inp_bit.value = 1
 
-    dut._log.info(f'Inp Seq = {A:04}  DUT={bin(dut.seq_seen.value)}')
+    dut._log.info(f'DUT={bin(dut.seq_seen.value)}')
     assert "Output sequence is {B}".format(
             B = (dut.seq_seen.value))
