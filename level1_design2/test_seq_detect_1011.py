@@ -24,15 +24,19 @@ async def test_seq_bug1(dut):
     await FallingEdge(dut.clk)
 
     dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
     dut._log.info(f'Input= {(dut.inp_bit.value)}, DUT={bin(dut.seq_seen.value)}')
 
     dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
     dut._log.info(f'Input= {(dut.inp_bit.value)}, DUT={bin(dut.seq_seen.value)}')
     
     dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
     dut._log.info(f'Input= {(dut.inp_bit.value)}, DUT={bin(dut.seq_seen.value)}')
 
     dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
     dut._log.info(f'Input= {(dut.inp_bit.value)}, DUT={bin(dut.seq_seen.value)}')
 
     assert dut.seq_seen.value == 1, "Output sequence is not high for 1011"
