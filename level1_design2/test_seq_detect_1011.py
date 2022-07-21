@@ -23,7 +23,7 @@ async def test_seq_bug1(dut):
     dut.reset.value = 0
     await FallingEdge(dut.clk)
 
-    A = {1,0,1,1}
+    A = [1,0,1,1]
 
     dut.inp_bit.value = A
 
