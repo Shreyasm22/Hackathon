@@ -36,7 +36,7 @@ async def test_seq_bug1(dut):
     dut._log.info(f'DUT={bin(dut.seq_seen.value)}')
 
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
+    dut.inp_bit.value = 0
     dut._log.info(f'DUT={bin(dut.seq_seen.value)}')
 
     assert "Output sequence is {B}".format(
