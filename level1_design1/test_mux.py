@@ -10,7 +10,7 @@ async def test_mux1(dut):
         A = '{0:05b}'.format(i)
         B = 0b11
 
-        dut.sel.value = bin(A)
+        dut.sel.value = '{0:05b}'.format(i)
         dut.inp1.value = B
 
         await Timer(2, units='ns')
