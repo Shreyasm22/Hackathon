@@ -10,7 +10,7 @@ async def test_mux(dut):
         B = 0b11
         C = "inp" + "" + str(i)
 
-        dut.sel.value = format(i, '5b')
+        dut.sel.value = '{:0>5}'.format(i, 'b')
         dut.C.value = B
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
