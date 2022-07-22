@@ -9,12 +9,13 @@ async def test_mux(dut):
     for i in range(0,32):
         A = '%5b'%i
         B = 0b10
+        C = "inp" + "" + str(i)
 
         dut.sel.value = A
-        dut.(inp'%d'%i).value = B
+        dut.C.value = B
 
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
-        assert dut.inp11.value == dut.out.value, "Output is not matching"
+        assert dut.C.value == dut.out.value, "Output is not matching"
         
 
