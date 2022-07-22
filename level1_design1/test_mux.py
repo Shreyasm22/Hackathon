@@ -15,6 +15,6 @@ async def test_mux(dut):
         dut.C.value = B
 
         dut._log.info(f'dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
-        assert dut.inp{cocotb.handle.ModifiableObject(i)}.value == dut.out.value, "Output is not matching"
+        assert dut.C.value == dut.out.value, "Output is not matching"
         
 
