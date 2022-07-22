@@ -11,7 +11,7 @@ async def test_mux(dut):
         B = 0b10
         C = "inp" + "" + str(i)
 
-        dut.sel.value = A
+        dut.sel.value = i
         dut.C.value = B
 
 
