@@ -12,7 +12,7 @@ async def test_mux(dut):
         C = "inp" + "" + str(int(i))
 
         dut.sel.value = A
-        dut.C.value = B
+        dut.("inp" + "" + str(int(i))).value = B
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
         assert dut.C.value == dut.out.value, "Output is not matching"
