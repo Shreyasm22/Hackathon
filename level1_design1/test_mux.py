@@ -9,7 +9,7 @@ async def test_mux(dut):
     for i in range(0,32):
         A = f'%5b%i'
         B = 0b11
-        C = "inp" + "" + i
+        C = "inp" + "" + str(i)
 
         dut.sel.value = A
         dut.C.value = B
