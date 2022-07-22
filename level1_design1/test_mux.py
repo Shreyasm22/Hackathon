@@ -9,7 +9,7 @@ async def test_mux(dut):
     for i in [0b00000, 0b00001, 0b00010, 0b00011]:
         A = i
         B = 0b11
-        C = "inp" + "" + int(i)
+        C = "inp" + "" + str(int(i))
 
         dut.sel.value = A
         dut.C.value = B
