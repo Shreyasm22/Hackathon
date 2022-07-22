@@ -7,7 +7,7 @@ async def test_mux(dut):
     """Test for mux2"""
 
     for i in range(0,32):
-        A = f'%5b%i'
+        A = format(i, '5b')
         B = 0b11
         C = "inp" + "" + str(i)
 
