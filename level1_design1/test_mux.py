@@ -11,7 +11,7 @@ async def test_mux(dut):
         B = 0b11
         C = "inp" + "" + str(i)
 
-        dut.sel.value = A
+        dut.sel.value = bin(A)
         dut.C.value = B
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
