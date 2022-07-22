@@ -7,10 +7,11 @@ async def test_mux(dut):
     """Test for mux2"""
 
     for i in range(0,32):
+        A = '{:0>5}'.format(i, 'b')
         B = 0b11
         C = "inp" + "" + str(i)
 
-        dut.sel.value = '{:0>5}'.format(i, 'b')
+        dut.sel.value = A
         dut.C.value = B
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
