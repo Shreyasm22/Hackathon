@@ -6,12 +6,14 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
 
-    for i in [5'b00000, 5'b00001, 5'b00010, 5'b00011]:
+    for i in [0b00000, 0b00001, 0b00010, 0b00011]:
         A = i
         B = 0b11
+
         dut.sel.value = A
+        dut.inp11.value = B 
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
-        assert dut.sel.value == dut.out.value, "Output is not matching"
+        assert dut.inp11.value == dut.out.value, "Output is not matching"
         
 
