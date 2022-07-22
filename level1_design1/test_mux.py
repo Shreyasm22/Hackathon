@@ -6,12 +6,12 @@ from cocotb.triggers import Timer
 async def test_mux(dut):
     """Test for mux2"""
 
-    for i in range(0,32):
-        A = '{:0>5}'.format(i, 'b')
+    for i in [0b00000, 0b00001, 0b00010, 0b00011]:
+        A = i
         B = 0b11
         C = "inp" + "" + str(i)
 
-        dut.sel.value = bin(A)
+        dut.sel.value = A
         dut.C.value = B
 
         dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
