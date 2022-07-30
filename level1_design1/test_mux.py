@@ -5,15 +5,10 @@ from cocotb.triggers import Timer
 @cocotb.test()
 async def test_mux(dut):
     """Test for mux2"""
+    mux = {0b00000 : 0b11, 0b00001 : 0b00, 0b00010 : 0b11, 0b00011 : 0b00}
 
-    for i in range(0,32):
-        B = 0b10
-
-        dut.sel.value = i
-        dut.inp{i} = B
-
-
-        dut._log.info(f'Sel = {(dut.sel.value)}, DUT={(dut.out.value)}')
-        assert dut.C.value == dut.out.value, "Output is not matching"
+    for x in mux:
+        dut._log.info(f'Sel = {x}, Inp = {mux[x]}, DUT={(dut.out.value)}')
+        assert mux[x] == dut.out.value, "Output is not matching"
         
 
