@@ -11,7 +11,7 @@ async def test_mux(dut):
     #dut._log.info(f'Sel = {x} Inp = {(dut.mux[x].value)} DUT={(dut.out.value)}')
     #assert dut.mux[x].value == dut.out.value, "Output is not matching"
 
-    dut._log.info(f'input = {(dut.inp0.value)}')
+    dut._log.info(f'input = {(type(dut.inp0.value))}')
 
 
 
