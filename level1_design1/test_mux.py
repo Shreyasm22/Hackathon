@@ -259,7 +259,7 @@ async def test_mux27(dut):
 @cocotb.test()
 async def test_mux28(dut):
     
-    dut.sel.value = 0b11101
+    dut.sel.value = 0b11100
     dut.inp28.value = 0b00
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp28.value)}, DUT={(dut.out.value)}')
@@ -268,7 +268,7 @@ async def test_mux28(dut):
 @cocotb.test()
 async def test_mux29(dut):
     
-    dut.sel.value = 0b11110
+    dut.sel.value = 0b11101
     dut.inp29.value = 0b01
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp29.value)}, DUT={(dut.out.value)}')
@@ -277,10 +277,19 @@ async def test_mux29(dut):
 @cocotb.test()
 async def test_mux30(dut):
     
-    dut.sel.value = 0b11111
+    dut.sel.value = 0b11110
     dut.inp30.value = 0b10
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp30.value)}, DUT={(dut.out.value)}')
     assert dut.inp30.value == dut.out.value, "Output is not matching"
+
+@cocotb.test()
+async def test_mux31(dut):
+    
+    dut.sel.value = 0b11111
+    dut.inp8.value = 0b10
+    await Timer(2, units='ns')
+    dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp8.value)}, DUT={(dut.out.value)}')
+    assert dut.inp8.value == dut.out.value, "Output is not matching"
 
 
