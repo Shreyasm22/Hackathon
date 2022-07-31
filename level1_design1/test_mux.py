@@ -283,13 +283,4 @@ async def test_mux30(dut):
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp30.value)}, DUT={(dut.out.value)}')
     assert dut.inp30.value == dut.out.value, "Output is not matching"
 
-@cocotb.test()
-async def test_mux31(dut):
-    
-    dut.sel.value = 0b11111
-    dut.inp8.value = 0b10
-    await Timer(2, units='ns')
-    dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp8.value)}, DUT={(dut.out.value)}')
-    assert dut.inp8.value == dut.out.value, "Output is not matching"
-
 
