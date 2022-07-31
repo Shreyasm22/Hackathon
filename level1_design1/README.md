@@ -69,10 +69,12 @@ Based on the above test input and analysing the design, we see the following
 In the always block of mux design, the selection line 5'b01101 is assigned two input lines inp12 and inp13, selection line 5'b01100 and 5'b11110 are not defined in the design code.
 
 ## Design Fix
-Failed design
+Failed design mux.v
+
 ![image](https://user-images.githubusercontent.com/51830376/182039144-4a2c8673-1d01-448a-b409-696fd42c728f.png)
 
 Updating the design and re-running the test makes the test pass.
+
 ![image](https://user-images.githubusercontent.com/51830376/182039294-abbd2496-bc1b-448e-b0e8-7fdd18967c4a.png)
 
 The updated design is checked in as mux_fix.v
