@@ -11,6 +11,7 @@ async def test_mux1(dut):
     await Timer(2, units='ns')
     assert dut.inp12.value == dut.out.value, "Output is not matching"
 
+@cocotb.test()
 async def test_mux2(dut):
     
     dut.sel.value = 0b01000
