@@ -8,10 +8,17 @@ async def test_mux(dut):
    
     dut.sel.value = 0b01101
     dut.inp12.value = 0b11
-    dut.inp13.value = 0b00
     await Timer(2, units='ns')
     assert dut.inp12.value == dut.out.value, "Output is not matching"
-    assert dut.inp13.value == dut.out.value, "Output is not matching"
+
+async def test_mux(dut):
+    
+    dut.sel.value = 0b01000
+    dut.inp8.value = 0b10
+    await Timer(2, units='ns')
+    assert dut.inp8.value == dut.out.value, "Output is not matching"
+
+    
 
 
 
