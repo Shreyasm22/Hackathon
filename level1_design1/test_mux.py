@@ -3,7 +3,7 @@ import cocotb
 from cocotb.triggers import Timer
 
 @cocotb.test()
-async def test_mux1(dut):
+async def test_mux0(dut):
     """Test for mux2"""
    
     dut.sel.value = 0b00000
@@ -13,7 +13,7 @@ async def test_mux1(dut):
     assert dut.inp0.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux2(dut):
+async def test_mux1(dut):
     
     dut.sel.value = 0b00001
     dut.inp1.value = 0b01
@@ -22,7 +22,7 @@ async def test_mux2(dut):
     assert dut.inp1.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux3(dut):
+async def test_mux2(dut):
     
     dut.sel.value = 0b00010
     dut.inp2.value = 0b10
@@ -31,7 +31,7 @@ async def test_mux3(dut):
     assert dut.inp2.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux4(dut):
+async def test_mux3(dut):
     
     dut.sel.value = 0b00011
     dut.inp3.value = 0b11
@@ -40,7 +40,7 @@ async def test_mux4(dut):
     assert dut.inp3.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux5(dut):
+async def test_mux4(dut):
     
     dut.sel.value = 0b00100
     dut.inp4.value = 0b00
@@ -49,7 +49,7 @@ async def test_mux5(dut):
     assert dut.inp4.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux6(dut):
+async def test_mux5(dut):
     
     dut.sel.value = 0b00101
     dut.inp5.value = 0b01
@@ -58,7 +58,7 @@ async def test_mux6(dut):
     assert dut.inp5.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux7(dut):
+async def test_mux6(dut):
     
     dut.sel.value = 0b00110
     dut.inp6.value = 0b10
@@ -67,7 +67,7 @@ async def test_mux7(dut):
     assert dut.inp6.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux8(dut):
+async def test_mux7(dut):
     
     dut.sel.value = 0b00111
     dut.inp7.value = 0b11
@@ -76,7 +76,7 @@ async def test_mux8(dut):
     assert dut.inp7.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux9(dut):
+async def test_mux8(dut):
     
     dut.sel.value = 0b01000
     dut.inp8.value = 0b00
@@ -85,7 +85,7 @@ async def test_mux9(dut):
     assert dut.inp8.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux10(dut):
+async def test_mux9(dut):
     
     dut.sel.value = 0b01001
     dut.inp9.value = 0b01
@@ -94,7 +94,7 @@ async def test_mux10(dut):
     assert dut.inp9.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux11(dut):
+async def test_mux10(dut):
     
     dut.sel.value = 0b01010
     dut.inp10.value = 0b10
@@ -103,7 +103,7 @@ async def test_mux11(dut):
     assert dut.inp10.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux12(dut):
+async def test_mux11(dut):
     
     dut.sel.value = 0b01011
     dut.inp11.value = 0b11
@@ -112,7 +112,7 @@ async def test_mux12(dut):
     assert dut.inp11.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux13(dut):
+async def test_mux12(dut):
     
     dut.sel.value = 0b01100
     dut.inp12.value = 0b11
@@ -121,7 +121,7 @@ async def test_mux13(dut):
     assert dut.inp12.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux14(dut):
+async def test_mux13(dut):
     
     dut.sel.value = 0b01101
     dut.inp13.value = 0b10
@@ -130,7 +130,7 @@ async def test_mux14(dut):
     assert dut.inp13.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux15(dut):
+async def test_mux14(dut):
     
     dut.sel.value = 0b01110
     dut.inp14.value = 0b10
@@ -139,7 +139,7 @@ async def test_mux15(dut):
     assert dut.inp14.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux16(dut):
+async def test_mux15(dut):
     
     dut.sel.value = 0b01111
     dut.inp15.value = 0b01
@@ -148,7 +148,7 @@ async def test_mux16(dut):
     assert dut.inp15.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux17(dut):
+async def test_mux16(dut):
     
     dut.sel.value = 0b10000
     dut.inp16.value = 0b00
@@ -157,7 +157,7 @@ async def test_mux17(dut):
     assert dut.inp16.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux18(dut):
+async def test_mux17(dut):
     
     dut.sel.value = 0b10001
     dut.inp17.value = 0b01
@@ -166,7 +166,7 @@ async def test_mux18(dut):
     assert dut.inp17.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux19(dut):
+async def test_mux18(dut):
     
     dut.sel.value = 0b10010
     dut.inp18.value = 0b10
@@ -175,7 +175,7 @@ async def test_mux19(dut):
     assert dut.inp18.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux20(dut):
+async def test_mux19(dut):
     
     dut.sel.value = 0b10011
     dut.inp19.value = 0b11
@@ -184,7 +184,7 @@ async def test_mux20(dut):
     assert dut.inp19.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux21(dut):
+async def test_mux20(dut):
     
     dut.sel.value = 0b10100
     dut.inp20.value = 0b00
@@ -193,7 +193,7 @@ async def test_mux21(dut):
     assert dut.inp20.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux22(dut):
+async def test_mux21(dut):
     
     dut.sel.value = 0b10101
     dut.inp21.value = 0b01
@@ -203,7 +203,7 @@ async def test_mux22(dut):
 
 
 @cocotb.test()
-async def test_mux23(dut):
+async def test_mux22(dut):
     
     dut.sel.value = 0b10110
     dut.inp22.value = 0b10
@@ -212,7 +212,7 @@ async def test_mux23(dut):
     assert dut.inp22.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux24(dut):
+async def test_mux23(dut):
     
     dut.sel.value = 0b10111
     dut.inp23.value = 0b11
@@ -221,7 +221,7 @@ async def test_mux24(dut):
     assert dut.inp23.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux25(dut):
+async def test_mux24(dut):
     
     dut.sel.value = 0b11000
     dut.inp24.value = 0b00
@@ -230,7 +230,7 @@ async def test_mux25(dut):
     assert dut.inp24.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux26(dut):
+async def test_mux25(dut):
     
     dut.sel.value = 0b11001
     dut.inp25.value = 0b01
@@ -239,7 +239,7 @@ async def test_mux26(dut):
     assert dut.inp25.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux27(dut):
+async def test_mux26(dut):
     
     dut.sel.value = 0b11010
     dut.inp26.value = 0b10
@@ -248,7 +248,7 @@ async def test_mux27(dut):
     assert dut.inp26.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux28(dut):
+async def test_mux27(dut):
     
     dut.sel.value = 0b11011
     dut.inp27.value = 0b11
@@ -257,7 +257,7 @@ async def test_mux28(dut):
     assert dut.inp27.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux29(dut):
+async def test_mux28(dut):
     
     dut.sel.value = 0b11101
     dut.inp28.value = 0b00
@@ -266,7 +266,7 @@ async def test_mux29(dut):
     assert dut.inp28.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux30(dut):
+async def test_mux29(dut):
     
     dut.sel.value = 0b11110
     dut.inp29.value = 0b01
@@ -275,7 +275,7 @@ async def test_mux30(dut):
     assert dut.inp29.value == dut.out.value, "Output is not matching"
 
 @cocotb.test()
-async def test_mux31(dut):
+async def test_mux30(dut):
     
     dut.sel.value = 0b11111
     dut.inp30.value = 0b10
@@ -283,36 +283,4 @@ async def test_mux31(dut):
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp30.value)}, DUT={(dut.out.value)}')
     assert dut.inp30.value == dut.out.value, "Output is not matching"
 
-@cocotb.test()
-async def test_mux2(dut):
-    
-    dut.sel.value = 0b01000
-    dut.inp8.value = 0b10
-    await Timer(2, units='ns')
-    dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp8.value)}, DUT={(dut.out.value)}')
-    assert dut.inp8.value == dut.out.value, "Output is not matching"
-
-@cocotb.test()
-async def test_mux2(dut):
-    
-    dut.sel.value = 0b01000
-    dut.inp8.value = 0b10
-    await Timer(2, units='ns')
-    dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp8.value)}, DUT={(dut.out.value)}')
-    assert dut.inp8.value == dut.out.value, "Output is not matching"
-
-
-
-
-    
-    
-
-    
-
-
-
-
-
-
-        
 
