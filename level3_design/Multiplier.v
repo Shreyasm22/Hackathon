@@ -113,6 +113,22 @@ module controller(ldA, ldB, ldP, clrP, decB, done, clk, eqz);
 
     end
 
+    module MUL_datapath(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk);
+    input ldA, ldB, ldP, clrP, decB, clk;
+    input [15:0] data_in;
+    output eqz;
+    wire [15:0] x,y,z,bout,bus;
+
+    assign bus = data_in;
+
+    PIPO1 A(x, bus, ldA, clk);
+    PIPO2 B(y, z, ldP, clrP, clk);
+    CNTR C(bout, bus, ldB, decB, clk);
+    ADD D(z, x, y);
+    EQZ E(eqz, bout);
+
+    endmodule
+
 
 endmodule
 
