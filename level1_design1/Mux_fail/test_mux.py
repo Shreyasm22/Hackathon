@@ -10,7 +10,7 @@ async def test_mux0(dut):
     dut.inp0.value = 0b00
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp0.value)}, DUT={(dut.out.value)}')
-    assert dut.inp0.value == dut.out.value, f"Values not matching. Sel = ({dut.sel.value}) Inp = {(dut.in0.value)} Out = {(dut.out.value)}"
+    assert dut.inp0.value == dut.out.value, f"Output Value mismatch. Sel = ({dut.sel.value}) Inp = {(dut.inp0.value)} Out = {(dut.out.value)}"
 
 @cocotb.test()
 async def test_mux1(dut):
