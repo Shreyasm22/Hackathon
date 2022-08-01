@@ -1,6 +1,6 @@
-module mult(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk, done, start);
+module mult(eqz, data_in, clk, done, start);
 inout eqz;
-inout ldA, ldB, ldP, clrP, decB;
+reg ldA, ldB, ldP, clrP, decB;
 input clk, start;
 input [15:0]data_in;
 output reg done;
