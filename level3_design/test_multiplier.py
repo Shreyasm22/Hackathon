@@ -6,8 +6,8 @@ from cocotb.triggers import Timer
 import random
 
 @cocotb.test()
-async def adder_basic_test(dut):
-    """Test for 5 + 10"""
+async def multiplier_basic_test(dut):
+    """Test for 11 * 10"""
 
     clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
     cocotb.start_soon(clock.start())        # Start the clock
