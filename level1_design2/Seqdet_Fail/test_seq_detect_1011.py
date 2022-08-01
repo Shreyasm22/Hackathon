@@ -94,8 +94,6 @@ async def test_seq_5(dut):
     await FallingEdge(dut.clk)
     dut.inp_bit.value = 1
     await FallingEdge(dut.clk)
-    dut.inp_bit.value = 1
-    await FallingEdge(dut.clk)
     dut.inp_bit.value = 0
     await FallingEdge(dut.clk)
     dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state.value} Out = {dut.seq_seen.value}")
