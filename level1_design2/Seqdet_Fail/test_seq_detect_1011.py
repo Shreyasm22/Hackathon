@@ -22,7 +22,7 @@ async def test_seq_1(dut):
     await FallingEdge(dut.clk) 
     dut.inp_bit.value = 1
     await FallingEdge(dut.clk) 
-    dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state} Out = {dut.seq_seen.value}")
+    dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state.value} Out = {dut.seq_seen.value}")
     assert dut.current_state.value == 0b000, "Reset is not working" 
     assert dut.seq_seen.value == 0, "Design error"
 
@@ -38,7 +38,7 @@ async def test_seq_2(dut):
     dut.reset.value = 0
     dut.inp_bit.value = 0
     await FallingEdge(dut.clk) 
-    dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state} Out = {dut.seq_seen.value}")
+    dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state.value} Out = {dut.seq_seen.value}")
     assert dut.current_state.value == 0b000, "Reset is not working" 
     assert dut.seq_seen.value == 0, "Design error"
 
