@@ -60,6 +60,27 @@ async def test_seq_3(dut):
     assert dut.current_state.value == 0b001, "State transition failed" 
     assert dut.seq_seen.value == 0, "Design error"
 
+@cocotb.test()
+async def test_seq_4(dut):
+    
+    clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
+    cocotb.start_soon(clock.start())        # Start the clock
+
+    # reset
+    dut.reset.value = 1
+    await FallingEdge(dut.clk) 
+    dut.reset.value = 0
+    dut.inp_bit.value = 0
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut.inp_bit.value = 1
+    await FallingEdge(dut.clk)
+    dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state.value} Out = {dut.seq_seen.value}")
+    assert dut.current_state.value == 0b001, "State transition failed" 
+    assert dut.seq_seen.value == 0, "Design error"
+
+
 
 
     
