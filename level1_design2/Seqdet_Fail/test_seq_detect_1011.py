@@ -22,7 +22,7 @@ async def test_seq_bug1(dut):
     await FallingEdge(dut.clk) 
     dut.inp_bit.value = 1
     dut._log.info(dut.current_state.value)
-    assert dut.current_state.value == "IDLE", "Reset is not working" 
+    assert dut.current_state.value == 0b000, "Reset is not working" 
     assert dut.seq_seen.value == 0, "Design error"
     
     
