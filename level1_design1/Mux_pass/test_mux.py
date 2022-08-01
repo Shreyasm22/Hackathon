@@ -20,6 +20,7 @@ async def test_mux1(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp1.value)}, DUT={(dut.out.value)}')
     assert dut.inp1.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp ={(dut.inp1.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux2(dut):
     
@@ -28,6 +29,7 @@ async def test_mux2(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp2.value)}, DUT={(dut.out.value)}')
     assert dut.inp2.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp2.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux3(dut):
     
@@ -36,6 +38,7 @@ async def test_mux3(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp3.value)}, DUT={(dut.out.value)}')
     assert dut.inp3.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp3.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux4(dut):
     
@@ -44,6 +47,7 @@ async def test_mux4(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp4.value)}, DUT={(dut.out.value)}')
     assert dut.inp4.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp4.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux5(dut):
     
@@ -52,6 +56,7 @@ async def test_mux5(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp5.value)}, DUT={(dut.out.value)}')
     assert dut.inp5.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp5.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux6(dut):
     
@@ -60,6 +65,7 @@ async def test_mux6(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp6.value)}, DUT={(dut.out.value)}')
     assert dut.inp6.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp6.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux7(dut):
     
@@ -68,6 +74,7 @@ async def test_mux7(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp7.value)}, DUT={(dut.out.value)}')
     assert dut.inp7.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp7.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux8(dut):
     
@@ -76,6 +83,7 @@ async def test_mux8(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp8.value)}, DUT={(dut.out.value)}')
     assert dut.inp8.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp8.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux9(dut):
     
@@ -84,6 +92,7 @@ async def test_mux9(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp9.value)}, DUT={(dut.out.value)}')
     assert dut.inp9.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp9.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux10(dut):
     
@@ -92,6 +101,7 @@ async def test_mux10(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp10.value)}, DUT={(dut.out.value)}')
     assert dut.inp10.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp10.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux11(dut):
     
@@ -100,6 +110,7 @@ async def test_mux11(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp11.value)}, DUT={(dut.out.value)}')
     assert dut.inp11.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp11.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux12(dut):
     
@@ -108,6 +119,7 @@ async def test_mux12(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp12.value)}, DUT={(dut.out.value)}')
     assert dut.inp12.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp12.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux13(dut):
     
@@ -116,6 +128,7 @@ async def test_mux13(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp13.value)}, DUT={(dut.out.value)}')
     assert dut.inp13.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp13.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux14(dut):
     
@@ -124,6 +137,7 @@ async def test_mux14(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp14.value)}, DUT={(dut.out.value)}')
     assert dut.inp14.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp14.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux15(dut):
     
@@ -132,6 +146,7 @@ async def test_mux15(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp15.value)}, DUT={(dut.out.value)}')
     assert dut.inp15.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp15.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux16(dut):
     
@@ -140,6 +155,7 @@ async def test_mux16(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp16.value)}, DUT={(dut.out.value)}')
     assert dut.inp16.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp16.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux17(dut):
     
@@ -148,6 +164,7 @@ async def test_mux17(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp17.value)}, DUT={(dut.out.value)}')
     assert dut.inp17.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp17.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux18(dut):
     
@@ -156,6 +173,7 @@ async def test_mux18(dut):
     await Timer(2, units='ns')
     dut._log.info(f'Sel = {(dut.sel.value)} Input= {(dut.inp18.value)}, DUT={(dut.out.value)}')
     assert dut.inp18.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp18.value)} Out = {(dut.out.value)}"
+
 @cocotb.test()
 async def test_mux19(dut):
     
