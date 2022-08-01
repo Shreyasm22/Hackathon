@@ -21,7 +21,8 @@ async def test_seq_bug1(dut):
     dut.reset.value = 1
     await FallingEdge(dut.clk) 
     dut.inp_bit.value = 1
-    assert dut.next_state == "SEQ1", "Reset is not working" 
+    dut._log.info(dut.next_state.value)
+    assert dut.next_state.value == "SEQ1", "Reset is not working" 
     assert dut.seq_seen.value == 0, "Design error"
     
     
