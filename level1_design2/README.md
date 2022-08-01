@@ -91,7 +91,7 @@ Based on the above test input and analysing the design, we see the following
   
 ```
 In the always state transition block of sequence detector design, there are 3 wrong state transitions in the design code.
-1. When two consecutive 1's are given at input with current_state = SEQ_1, the next_state = IDLE state instead of next_state = SEQ_1.
+1. When 1 is passed at input with current_state = SEQ_1, the next_state = IDLE state instead of next_state = SEQ_1.
 2. When 0 is passed at input with current_state = SEQ_101, the next_state = IDLE state instead of next_state = SEQ_10.
 3. When 1 is passed at input with current_state = SEQ_1011, the next_state = IDLE state instead of next_state = SEQ_1.
 
