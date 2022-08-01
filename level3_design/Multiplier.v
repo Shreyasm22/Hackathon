@@ -1,6 +1,6 @@
 //Datapath
 
-module MUL_datapath(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk);
+/*module MUL_datapath(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk);
     input ldA, ldB, ldP, clrP, decB, clk;
     input [15:0] data_in;
     output eqz;
@@ -14,7 +14,7 @@ module MUL_datapath(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk);
     ADD D(z, x, y);
     EQZ E(eqz, bout);
 
-endmodule
+endmodule */
 
 //PIPO1
 
