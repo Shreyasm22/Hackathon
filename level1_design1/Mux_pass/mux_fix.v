@@ -59,5 +59,5 @@ module mux(sel,inp0, inp1, inp2, inp3, inp4, inp5, inp6, inp7, inp8,
       default: out = 0;
     endcase
   end
-
+  
 endmodule 
