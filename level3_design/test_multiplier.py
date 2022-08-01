@@ -23,7 +23,7 @@ async def multiplier_basic_test(dut):
     #dut.data_in.value = B
 
     await FallingEdge(dut.clk)
-    dut._log.info(f"Inp1 = {A} Inp2 = {B} Out = {dut.y.value}")
+    dut._log.info(f"Inp1 = {A} Inp2 = {B} Out = {MUL_datapath.y.value}")
     assert dut.y.value == {A*B}, f"Multiplication result is incorrect: {A} * {B} != {A*B}"
            
 
