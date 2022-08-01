@@ -17,10 +17,10 @@ async def multiplier_basic_test(dut):
 
     # reset
     dut.start.value = 1
-    #await FallingEdge(dut.clk)
-    #dut.data_in.value = A
-    #await FallingEdge(dut.clk)
-    #dut.data_in.value = B
+    await FallingEdge(dut.clk)
+    dut.data_in.value = A
+    await FallingEdge(dut.clk)
+    dut.data_in.value = B
 
     await FallingEdge(dut.clk)
     dut._log.info(f"Inp1 = {A} Inp2 = {B} Out = {dut.y.value}")
