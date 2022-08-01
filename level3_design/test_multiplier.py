@@ -12,8 +12,8 @@ async def multiplier_basic_test(dut):
     clock = Clock(dut.clk, 10, units="us")  # Create a 10us period clock on port clk
     cocotb.start_soon(clock.start())        # Start the clock
 
-    A = 11
-    B = 10
+    A = 8
+    B = 9
 
     # reset
     dut.C.start.value = 1
