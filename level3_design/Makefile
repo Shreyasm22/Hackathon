@@ -6,8 +6,8 @@ PWD=$(shell pwd)
 
 VERILOG_SOURCES = $(PWD)/Multiplier.v               # provide your design path
 
-TOPLEVEL_2 :=    controller       # design file
-TOPLEVEL_1 :=    MUL_datapath       # design file
+TOPLEVEL :=    controller       # design file
+SUBLEVEL :=    MUL_datapath       # design file
 
 MODULE   :=    test_multiplier    # test file
 
