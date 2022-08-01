@@ -74,8 +74,8 @@ endmodule
 
 //Controlpath
 
-module controller(ldA, ldB, ldP, clrP, decB, done, clk, eqz);
-    input clk, eqz;
+module controller(ldA, ldB, ldP, clrP, decB, done, clk, eqz, start);
+    input clk, eqz, start;
     output reg ldA, ldB, ldP, clrP, decB, done;
     reg [2:0] state;
     parameter S0 = 3'b000, S1 = 3'b001, S2 = 3'b010, S3 = 3'b011, S4 = 3'b100;
@@ -84,7 +84,7 @@ module controller(ldA, ldB, ldP, clrP, decB, done, clk, eqz);
     begin
         case(state)
 
-            S0 : state <= S1;
+            S0 : if(start) state <= S1;
             S1 : state <= S2;
             S2 : state <= S3;
             S3 : #2 if(eqz) state <= S4;
