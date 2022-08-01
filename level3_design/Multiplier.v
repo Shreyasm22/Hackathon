@@ -69,7 +69,7 @@ module CNTR(dout, din, ld, dec, clk);
 
     always@(posedge clk)
         if(ld) dout <= din;
-        else if(dec && dout != 0) dout <= dout - 1;
+        else if(dec && dout != 0) dout <= dout - 2;
 endmodule
 
 //Controlpath
