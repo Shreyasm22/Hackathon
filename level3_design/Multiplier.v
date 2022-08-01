@@ -45,7 +45,7 @@ endmodule
 //Datapath
 
 module MUL_datapath(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk, start);
-    input ldA, ldB, ldP, clrP, decB, clk, start = 1 ;
+    input ldA, ldB, ldP, clrP, decB, clk, start = 1'b1 ;
     input [15:0] data_in;
     output eqz;
     wire [15:0] x,y,z,bout,bus;
