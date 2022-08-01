@@ -17,12 +17,12 @@ async def multiplier_basic_test(dut):
 
     # reset
     dut.C.start.value = 1
-    await FallingEdge(dut.clk)
+    #await FallingEdge(dut.clk)
     dut.M.data_in.value = A
     await FallingEdge(dut.clk)
     dut.M.data_in.value = B
 
-    for i in range(A+3):
+    for i in range(A+1):
         await FallingEdge(dut.clk)
     dut._log.info(f"Inp1 = {A} Inp2 = {B} Out = {int(dut.M.y.value)}")
     assert int(dut.M.y.value) == {A*B}, f"Multiplication result is incorrect: {A} * {B} != {A*B}"
