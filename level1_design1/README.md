@@ -66,7 +66,7 @@ Based on the above test input and analysing the design, we see the following
   end
   
 ```
-In the always block of mux design, the selection line 5'b01101 is assigned two input lines inp12 and inp13, selection line 5'b01100 and 5'b11110 are not defined in the design code.
+In the always block of mux design, the selection line 5'b01101 is assigned two input lines inp12 and inp13, selection lines 5'b01100 and 5'b11110 are not defined in the design code.
 
 ## Design Fix
 Failed design mux.v
