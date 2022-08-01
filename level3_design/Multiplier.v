@@ -113,7 +113,6 @@ module controller(ldA, ldB, ldP, clrP, decB, done, clk, eqz);
 
     end
 
-    MUL_datapath M1(eqz, ldA, ldB, ldP, clrP, decB, data_in, clk);
 
 endmodule
 
