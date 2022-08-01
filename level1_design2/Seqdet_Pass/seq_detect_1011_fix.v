@@ -66,10 +66,10 @@ module seq_detect_1011(seq_seen, inp_bit, reset, clk);
       end
       SEQ_1011:
       begin
-        if(inp_bit == 1)
-          next_state = SEQ_1;
+        if(inp_bit == 0)
+          next_state = IDLE;
         else
-          next_state = SEQ_10;
+          next_state = SEQ_1
       end
     endcase
   end
