@@ -24,7 +24,7 @@ async def multiplier_basic_test(dut):
 
     for i in range(B):
         await FallingEdge(dut.clk)
-    dut._log.info(f"Inp1 = {A} Inp2 = {B} Out = {(dut.M.y.value)}")
-    assert dut.M.y.value == {A*B}, f"Multiplication result is incorrect: {A} * {B} != {A*B}"
+    dut._log.info(f"Inp1 = {A} Inp2 = {B} Out = {int(dut.M.y.value)}")
+    assert int(dut.M.y.value) == {A*B}, f"Multiplication result is incorrect: {A} * {B} != {A*B}"
            
 
