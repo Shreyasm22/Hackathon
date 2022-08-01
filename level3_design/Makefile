@@ -4,9 +4,9 @@ TOPLEVEL_LANG ?= verilog
 
 PWD=$(shell pwd)
 
-VERILOG_SOURCES = $(PWD)/Multiplier.v               # provide your design path
+VERILOG_SOURCES = $(PWD)/Mults.v               # provide your design path
 
-TOPLEVEL :=    {controller, MUL_datapath}     # design file
+TOPLEVEL :=    mult     # design file
 
 MODULE   :=    test_multiplier    # test file
 
