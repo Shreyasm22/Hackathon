@@ -17,7 +17,7 @@ async def multiplier_basic_test(dut):
 
     # reset
     dut.C.start.value = 1
-    #await FallingEdge(dut.clk)
+    await FallingEdge(dut.clk)
     dut.M.data_in.value = A
     await FallingEdge(dut.clk)
     dut.M.data_in.value = B
