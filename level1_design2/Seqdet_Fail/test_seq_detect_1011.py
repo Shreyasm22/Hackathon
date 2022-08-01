@@ -33,8 +33,9 @@ async def test_seq_2(dut):
     cocotb.start_soon(clock.start())        # Start the clock
 
     # reset
-    dut.reset.value = 0
+    dut.reset.value = 1
     await FallingEdge(dut.clk) 
+    dut.reset.value = 0
     dut.inp_bit.value = 0
     await FallingEdge(dut.clk) 
     dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state} Out = {dut.seq_seen.value}")
