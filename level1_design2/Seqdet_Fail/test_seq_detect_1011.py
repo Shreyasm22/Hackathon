@@ -204,7 +204,7 @@ async def test_seq_9(dut):
     await FallingEdge(dut.clk)
     dut._log.info(f"Inp = {dut.inp_bit.value} State = {dut.current_state.value} Out = {dut.seq_seen.value}")
     assert dut.current_state.value == 0b100, "State transition failed" 
-    assert dut.seq_seen.value == 0, "Design error"
+    assert dut.seq_seen.value == 1, "Design error"
 
 
 
