@@ -6,38 +6,53 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 5-bit selection line *sel* and 2-bit input lines *inp0-inp30* and gives 2-bit output *out*
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (seq_detect_1011 module here) which takes in 1-bit input line *inp_bit* at every *negative edge* of clock and gives 1-bit output *seq_seen* at every next corresponding *positive edge* of the clock. The design gives output *seq_seen* only for 1-bit active low *reset* input.  
 
 The values are assigned to the input port using 
-```
-dut.sel.value = 0b01101
-dut.inp13.value = 0b10
 
 ```
-The assert statement is used for comparing the mux's output to the expected value.
-
-The following error is seen:
+dut.reset.value = 1
+await FallingEdge(dut.clk) 
+dut.reset.value = 0
+dut.inp_bit.value = 0
+await FallingEdge(dut.clk)
+dut.inp_bit.value = 1
+await FallingEdge(dut.clk)
+dut.inp_bit.value = 1
 
 ```
-assert dut.inp13.value == dut.out.value, f"Output Value mismatch. Sel = {(dut.sel.value)} Inp = {(dut.inp13.value)} Out = {(dut.out.value)}"
-                     AssertionError: Output Value mismatch. Sel = 01101 Inp = 10 Out = 11
+The assert statement is used for comparing the sequence detector's output to the expected value.
+
+The following errors are seen:
+
 ```
+assert dut.current_state.value == 0b010, "State transition failed"
+                     AssertionError: State transition failed
+```
+
+```
+assert dut.seq_seen.value == 0, "Design error"
+                     AssertionError: Design error
+```
+
+
 ## Failed Scenarios
 
 ## Test Scenario1
-- Test Inputs: sel=0b01100 inp12=0b11
-- Expected Output: out=0b11
-- Observed Output in the DUT dut.out=0b00
+- Test Inputs: reset=0, inp_bit=0,1,1
+- Expected Output: seq_seen = 0, next_state = 001 
+- Observed Output in the DUT dut.seq_seen=0, dut.next_state = 000
 
 ## Test Scenario2
-- Test Inputs: sel=0b01101 inp13=0b10
-- Expected Output: out=0b10
-- Observed Output in the DUT dut.out=0b11
+- Test Inputs: reset=0, inp_bit=0,1,0,0,1,0,1,0
+- Expected Output: seq_seen = 0, next_state = 010 
+- Observed Output in the DUT dut.seq_seen=0, dut.next_state = 000
 
 ## Test Scenario3
-- Test Inputs: sel=0b11110 inp30=0b10
-- Expected Output: out=0b10
-- Observed Output in the DUT dut.out=0b00
+- Test Inputs: reset=0, inp_bit=0,1,0,0,1,0,1,1,1
+- Expected Output: seq_seen = 0, next_state = 001 
+- Observed Output in the DUT dut.seq_seen=0, dut.next_state = 000
+
 
 Output mismatches for the above inputs proving that there is a design bug
 
@@ -45,37 +60,50 @@ Output mismatches for the above inputs proving that there is a design bug
 Based on the above test input and analysing the design, we see the following
 
 ```
- always @(sel or inp0  or inp1 or  inp2 or inp3 or inp4 or inp5 or inp6 or
-            inp7 or inp8 or inp9 or inp10 or inp11 or inp12 or inp13 or 
-            inp14 or inp15 or inp16 or inp17 or inp18 or inp19 or inp20 or
-            inp21 or inp22 or inp23 or inp24 or inp25 or inp26 or inp27 or 
-            inp28 or inp29 or inp30 )
-
+ always @(inp_bit or current_state)
   begin
-    case(sel)
+    case(current_state)
       .
       .
+      SEQ_1:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_1;       ===> bug
+        else
+          next_state = IDLE;
+      end
       .
-      5'b01101: out = inp12           ====> BUG
-      5'b01101: out = inp13           ====> BUG
       .
-      .
-      5'b11101: out = inp29;          ====> BUG
-      default: out = 0;
+      SEQ_101:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_1011;
+        else
+          next_state = IDLE;       ===> bug
+      
+      SEQ_1011:
+      begin
+        next_state = IDLE;         ===> bug
+      end
+      
     endcase
   end
   
 ```
-In the always block of mux design, the selection line 5'b01101 is assigned two input lines inp12 and inp13, selection lines 5'b01100 and 5'b11110 are not defined in the design code.
+In the always state transition block of sequence detector design, there are 3 wrong state transitions in the design code.
+1. When two consecutive 1's are given at input with current_state = SEQ_1, the next_state = IDLE state instead of next_state = SEQ_1.
+2. When 0 is passed at input with current_state = SEQ_101, the next_state = IDLE state instead of next_state = SEQ_10.
+3. When 1 is passed at input with current_state = SEQ_1011, the next_state = IDLE state instead of next_state = SEQ_1.
 
 ## Design Fix
-Failed design mux.v
+Failed design seq_detect_1011.v
 
-![image](https://user-images.githubusercontent.com/51830376/182039144-4a2c8673-1d01-448a-b409-696fd42c728f.png)
+![image](https://user-images.githubusercontent.com/51830376/182148742-45b88d8e-875a-4217-982d-4ef7e2ad4acd.png)
+
 
 Updating the design and re-running the test makes the test pass.
 
-![image](https://user-images.githubusercontent.com/51830376/182039294-abbd2496-bc1b-448e-b0e8-7fdd18967c4a.png)
+![image](https://user-images.githubusercontent.com/51830376/182150608-847ceb27-50a4-45dd-9211-6951aa35887f.png)
 
-The updated design is checked in as mux_fix.v
+The updated design is checked in as seq_detect_1011_fix.v
 
